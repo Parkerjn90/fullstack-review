@@ -7,7 +7,7 @@ import RepoList from './components/RepoList.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       repos: []
     }
 
@@ -15,8 +15,27 @@ class App extends React.Component {
 
   search (term) {
     console.log(`${term} was searched`);
-    // TODO
+    // get repos Username is term searched from git api
+    $.ajax({
+      method: 'POST',
+      url: '/repos',
+      contentType: 'string',
+      data: term,
+      success: function() {alert('successful search')},
+      error: function() {console.log(err)},
+    })
   }
+  // get request later????
+  // fetch() // not sure what goes here
+  //   // wait for them to return
+  //   .then(results => {
+  //     // setState to current state plus new set of repos
+  //     this.setState ({repos: this.state.repos.concat(results)})
+  //   }).catch(err => {
+  //     // catch errors
+  //     console.error(err);
+  //     alert.('username does not exist, try another')
+  //   })
 
   render () {
     return (<div>
