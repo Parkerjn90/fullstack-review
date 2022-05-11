@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fetcher');
 
 let repoSchema = mongoose.Schema({
-  repoID: {type: Number, required: true; unique: true}, // unique repo ID - comes from id
+  repoID: {type: Number, required: true, unique: true}, // unique repo ID - comes from id
   repoName: String, // repo name - comes from name
   userName: String, // git user - comes from owner.login // camelCase
   userLink: String, // git user's github - comes from owner.html_url
@@ -19,7 +19,7 @@ let save = (repos) => {
   console.log('repos in save in database/index', repos)
   repos.map(repo => {
     // create instance, set values as you want them
-    Repo.findOneAndUpdate({repo.data}, { // findOneAndUpdate
+    Repo.findOneAndUpdate({repo}, { // findOneAndUpdate
       repoID: this.id,
       repoName: this.name,
       userName: this.owner.login, // git user - comes from owner.login // camelCase
