@@ -19,10 +19,10 @@ class App extends React.Component {
     $.ajax({
       method: 'POST',
       url: '/repos',
-      contentType: 'string',
+      contentType: 'application/json',
       data: term,
       success: function() {alert('successful search')},
-      error: function() {console.log(err)},
+      error: function(err) {console.log(err)},
     })
   }
   // get request later????

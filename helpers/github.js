@@ -9,13 +9,7 @@ let getReposByUsername = (username) => {
       'Authorization': `token ${config.TOKEN}`
     },
   };
-  axios(options)
-    .then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    })
-
+  return axios(options);
 }
 
 module.exports.getReposByUsername = getReposByUsername;
